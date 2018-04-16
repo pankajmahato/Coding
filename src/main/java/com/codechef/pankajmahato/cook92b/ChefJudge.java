@@ -1,4 +1,4 @@
-package com.codechef.pankaj;
+package com.codechef.pankajmahato.cook92b;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -6,9 +6,11 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.util.InputMismatchException;
 
-public class CountSum {
-	// Count Sum (keteki)
-	// https://www.codechef.com/KQM92018/problems/QM9B
+public class ChefJudge {
+
+	//Chef Judges a Competition
+	//https://www.codechef.com/COOK92B/problems/CO92JUDG
+
 	private static InputStream stream;
 	private static byte[] buf = new byte[1024];
 	private static int curChar;
@@ -20,14 +22,36 @@ public class CountSum {
 
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		InputReader(System.in);
 		int testCases = nI();
 		while (testCases-- > 0) {
 			int n = nI();
-			System.out.println(n / 2);
+			int[] a = new int[n];
+			int[] b = new int[n];
+			int maxA = Integer.MIN_VALUE;
+			int maxB = Integer.MIN_VALUE;
+			int sumA = 0, sumB = 0;
+			for (int i = 0; i < n; i++) {
+				a[i] = nI();
+				sumA += a[i];
+				maxA = Math.max(a[i], maxA);
+			}
+			for (int i = 0; i < n; i++) {
+				b[i] = nI();
+				sumB += b[i];
+				maxB = Math.max(b[i], maxB);
+			}
+			sumA -= maxA;
+			sumB -= maxB;
+			if (sumA < sumB) {
+				System.out.println("Alice");
+			} else if (sumB < sumA) {
+				System.out.println("Bob");
+			} else {
+				System.out.println("Draw");
+			}
 		}
-
 	}
 
 

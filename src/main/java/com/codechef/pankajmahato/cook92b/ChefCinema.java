@@ -1,10 +1,10 @@
-package com.codechef.pankaj;
+package com.codechef.pankajmahato.cook92b;
 
 import java.util.Scanner;
 
 public class ChefCinema {
 	//Chef Goes to the Cinema
-	//https://www.codechef.com/viewsolution/17906018
+	// https://www.codechef.com/COOK92B/problems/CO92SUBW
 	public static void main(String args[]) {
 		Scanner in = new Scanner(System.in);
 		int t = in.nextInt();

@@ -1,4 +1,4 @@
-package com.codechef.pankaj;
+package com.codechef.pankajmahato.april18b;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

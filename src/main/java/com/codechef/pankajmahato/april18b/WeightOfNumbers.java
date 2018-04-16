@@ -1,15 +1,16 @@
-package com.codechef.pankaj;
+package com.codechef.pankajmahato.april18b;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
-public class RhymingWords {
-	// Rhyming Words (keteki)
-	// https://www.codechef.com/KQM92018/problems/QM9A
+public class WeightOfNumbers {
+
+	//Weight of Numbers
+	//https://www.codechef.com/APRIL18B/problems/WGHTNUM
+
 	private static InputStream stream;
 	private static byte[] buf = new byte[1024];
 	private static int curChar;
@@ -21,89 +22,27 @@ public class RhymingWords {
 
 
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int t = sc.nextInt();
-		for (int i = 0; i < t; i++) {
-			int n = sc.nextInt();
-			//System.out.println(n+ " ");
-			//String str  =  sc.next();
-			//System.out.println(str+ " ");
-			String[] splited = new String[n];
-			int a = 0, e = 0, u = 0, ii = 0, o = 0;
-			for (int j = 0; j < n; j++) {
-				try {
-					splited[j] = sc.next();
-					char[] c = splited[j].toCharArray();
-					for (int k = c.length - 1; k >= 0; k--) {
-						if (c[k] == 'a') {
-							a++;
-							break;
-						}
-						if (c[k] == 'e') {
-							e++;
-							break;
-						}
-						if (c[k] == 'i') {
-							ii++;
-							break;
-						}
-						if (c[k] == 'u') {
-							u++;
-							break;
-						}
-						if (c[k] == 'o') {
-							o++;
-							break;
-						}
-					}
+	public static void main(String[] args) throws IOException {
+		InputReader(System.in);
 
-
-				} catch (Exception ee) {
-
-				}
-
-			}
-			int count = 0;
-			if (a > 1) {
-				count = count + a;
-			}
-			if (e > 1) {
-				count = count + e;
-			}
-			if (ii > 1) {
-				count = count + ii;
-			}
-			if (u > 1) {
-				count = count + u;
-			}
-			if (o > 1) {
-				count = count + o;
-			}
-			System.out.println(count);
+		int t = nI();
+		if (t > 100000 || t < 1) {
+			return;
 		}
 
-	}
-
-
-
-
-
-	private static int indexLastVowel(String s) {
-		for (int i = s.length() - 1; i >= 0; i--) {
-			switch (s.charAt(i)) {
-			case 'a':
-			case 'e':
-			case 'i':
-			case 'o':
-			case 'u':
-				return i;
-			default:
-				break;
+		while (t-- > 0) {
+			long n = nL();
+			if (n > 100000000000000000L || n < 2) {
+				return;
 			}
-		}
+			int w = nI();
+			if (w > 300 || w < 0) {
+				return;
+			}
 
-		return -1;
+			long count = (long) ((9 - w) * Math.pow(10, n - 2));
+			System.out.println(count % 1000000007);
+		}
 	}
 
 

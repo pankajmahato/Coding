@@ -1,4 +1,4 @@
-package com.codechef.pankaj;
+package com.codechef.pankajmahato.cook92b;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -6,42 +6,122 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.util.InputMismatchException;
 
-public class WeightOfNumbers {
+public class ChefMatrix {
 
-	//Weight of Numbers
-	//https://www.codechef.com/APRIL18B/problems/WGHTNUM
-
+	//Chef Restores a Matrix
+	//https://www.codechef.com/COOK92B/problems/CO92MATR
 	private static InputStream stream;
 	private static byte[] buf = new byte[1024];
 	private static int curChar;
 	private static int numChars;
 	private static SpaceCharFilter filter;
 	static BufferedWriter log = new BufferedWriter(new OutputStreamWriter(System.out));
+	private static long MAX = 2000000000;
 
 
 
 
 
 	public static void main(String[] args) throws IOException {
+		// System.setIn(new FileInputStream("d:\\programming\\case.txt"));
 		InputReader(System.in);
-
-		int t = nI();
-		if (t > 100000 || t < 1) {
-			return;
+		int testCases = nI();
+		while (testCases-- > 0) {
+			int n = nI();
+			int m = nI();
+			long[][] a = new long[n][m];
+			boolean isPossible = true;
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < m; j++) {
+					a[i][j] = nL();
+				}
+			}
+			if (processRow(a, n - 1, m - 1) && processColumn(a, n - 1, m - 1)) {
+				Outer: for (int i = n - 1; i >= 0; i--) {
+					for (int j = m - 1; j >= 0; j--) {
+						if (a[i][j] == -1) {
+							a[i][j] = Math.min(a[i + 1][j], a[i][j + 1]);
+						}
+						if (i != n - 1 && j != m - 1) {
+							if (a[i][j] > a[i][j + 1] || a[i][j] > a[i + 1][j]) {
+								isPossible = false;
+								break Outer;
+							}
+						}
+					}
+				}
+			} else {
+				isPossible = false;
+			}
+			if (isPossible) {
+				printMatrix(a);
+			} else {
+				log.write("-1\n");
+			}
 		}
+		log.flush();
+	}
 
-		while (t-- > 0) {
-			long n = nL();
-			if (n > 100000000000000000L || n < 2) {
-				return;
-			}
-			int w = nI();
-			if (w > 300 || w < 0) {
-				return;
-			}
 
-			long count = (long) ((9 - w) * Math.pow(10, n - 2));
-			System.out.println(count % 1000000007);
+
+
+
+	public static boolean processRow(long[][] a, int i, int j) {
+		boolean isPossible = true;
+		long max = a[i][j];
+		if (max == -1) {
+			max = MAX;
+			a[i][j] = MAX;
+		}
+		for (int c = j - 1; c >= 0; c--) {
+			if (a[i][c] == -1) {
+				a[i][c] = max;
+			} else {
+				max = a[i][c];
+				if (a[i][c] > a[i][c + 1]) {
+					isPossible = false;
+					break;
+				}
+			}
+		}
+		return isPossible;
+	}
+
+
+
+
+
+	public static boolean processColumn(long[][] a, int i, int j) {
+		boolean isPossible = true;
+		long max = a[i][j];
+		if (max == -1) {
+			max = MAX;
+			a[i][j] = MAX;
+		}
+		for (int c = i - 1; c >= 0; c--) {
+			if (a[c][j] == -1) {
+				a[c][j] = max;
+			} else {
+				max = a[c][j];
+				if (a[c][j] > a[c + 1][j]) {
+					isPossible = false;
+					break;
+				}
+			}
+		}
+		return isPossible;
+	}
+
+
+
+
+
+	public static void printMatrix(long[][] a) throws IOException {
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < a[0].length; j++) {
+				log.write(String.valueOf(a[i][j] + " "));
+			}
+			log.write("\n");
 		}
 	}
 

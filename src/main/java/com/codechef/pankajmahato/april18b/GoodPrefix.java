@@ -1,15 +1,16 @@
-package com.codechef.pankaj;
+package com.codechef.pankajmahato.april18b;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Field;
 import java.util.InputMismatchException;
 
-public class AverageOfPairs {
+public class GoodPrefix {
 
-	//Average of Pairs
-	//https://www.codechef.com/APRIL18B/problems/AVGPR
+	//Count Good Prefixes
+	//https://www.codechef.com/APRIL18B/problems/GOODPREF
 
 	private static InputStream stream;
 	private static byte[] buf = new byte[1024];
@@ -24,41 +25,81 @@ public class AverageOfPairs {
 
 	public static void main(String[] args) throws IOException {
 		InputReader(System.in);
-
-		int t = nI();
-		if (t > 10 || t < 1) {
+		int testCases = nI();
+		if (testCases > 100 || testCases < 1) {
 			return;
 		}
-
-		while (t-- > 0) {
-			int n = nI();
-			if (n > 100000 || n < 1) {
+		while (testCases-- > 0) {
+			String s = nS();
+			long n = nL();
+			if (s.length() > 1000 || n > 1000000000L || n < 1) {
 				return;
 			}
+			//			StringBuilder str = new StringBuilder();
+			//			for (long i = 0; i < n; i++) {
+			//				str.append(s);
+			//			}
+			//			try {
+			//				final Field field = String.class.getDeclaredField("value");
+			//				field.setAccessible(true);
+			//
+			//				long total = 0;
+			//				long aCount = 0;
+			//				long bCount = 0;
+			//				final char[] chars = (char[]) field.get(str.toString());
+			//				final int len = chars.length;
+			//				for (int i = 0; i < len; i++) {
+			//					if (chars[i] == 'a') {
+			//						aCount++;
+			//					} else if (chars[i] == 'b') {
+			//						bCount++;
+			//					} else {
+			//						throw new Exception();
+			//					}
+			//					if (aCount > bCount) {
+			//						total++;
+			//					}
+			//				}
+			//				System.out.println(total);
+			//			} catch (Exception ex) {
+			//				throw new IOException();
+			//			}
 
-			int[] a = new int[n + 1];
-			for (int i = 1; i <= n; i++) {
-				a[i] = nI();
-				if (a[i] > 1000 || a[i] < 0) {
-					return;
-				}
-			}
+			//			int k=0;
+			//			long l = n*s.length();
+			//			int ls=s.length();
+			//			for(long i=0;i<l;i++){
+			//
+			//				if(s.charAt(k%ls)=='a'){
+			//
+			//				}
+			//			}
 
-			int count = 0;
-
-			for (int i = 1; i < n; i++) {
-				for (int j = i + 1; j <= n; j++) {
-					int sum = a[i] + a[j];
-					for (int k = 1; k <= n; k++) {
-						if (2 * a[k] == sum) {
-							count++;
-							break;
+			try {
+				final Field field = String.class.getDeclaredField("value");
+				field.setAccessible(true);
+				long total = 0;
+				long aCount = 0;
+				long bCount = 0;
+				final char[] chars = (char[]) field.get(s);
+				final int len = chars.length;
+				for (long i = 0; i < n; i++) {
+					for (int j = 0; j < len; j++) {
+						if (chars[j] == 'a') {
+							aCount++;
+						} else if (chars[j] == 'b') {
+							bCount++;
+						} else {
+							throw new Exception();
+						}
+						if (aCount > bCount) {
+							total++;
 						}
 					}
 				}
+				System.out.println(total);
+			} catch (Exception ex) {
 			}
-			System.out.println(count);
-
 		}
 	}
 

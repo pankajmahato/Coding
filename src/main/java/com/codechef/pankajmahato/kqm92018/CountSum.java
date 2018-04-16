@@ -1,17 +1,14 @@
-package com.codechef.pankaj;
+package com.codechef.pankajmahato.kqm92018;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Field;
 import java.util.InputMismatchException;
 
-public class GoodPrefix {
-
-	//Count Good Prefixes
-	//https://www.codechef.com/APRIL18B/problems/GOODPREF
-
+public class CountSum {
+	// Count Sum (keteki)
+	// https://www.codechef.com/KQM92018/problems/QM9B
 	private static InputStream stream;
 	private static byte[] buf = new byte[1024];
 	private static int curChar;
@@ -23,84 +20,14 @@ public class GoodPrefix {
 
 
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		InputReader(System.in);
 		int testCases = nI();
-		if (testCases > 100 || testCases < 1) {
-			return;
-		}
 		while (testCases-- > 0) {
-			String s = nS();
-			long n = nL();
-			if (s.length() > 1000 || n > 1000000000L || n < 1) {
-				return;
-			}
-			//			StringBuilder str = new StringBuilder();
-			//			for (long i = 0; i < n; i++) {
-			//				str.append(s);
-			//			}
-			//			try {
-			//				final Field field = String.class.getDeclaredField("value");
-			//				field.setAccessible(true);
-			//
-			//				long total = 0;
-			//				long aCount = 0;
-			//				long bCount = 0;
-			//				final char[] chars = (char[]) field.get(str.toString());
-			//				final int len = chars.length;
-			//				for (int i = 0; i < len; i++) {
-			//					if (chars[i] == 'a') {
-			//						aCount++;
-			//					} else if (chars[i] == 'b') {
-			//						bCount++;
-			//					} else {
-			//						throw new Exception();
-			//					}
-			//					if (aCount > bCount) {
-			//						total++;
-			//					}
-			//				}
-			//				System.out.println(total);
-			//			} catch (Exception ex) {
-			//				throw new IOException();
-			//			}
-
-			//			int k=0;
-			//			long l = n*s.length();
-			//			int ls=s.length();
-			//			for(long i=0;i<l;i++){
-			//
-			//				if(s.charAt(k%ls)=='a'){
-			//
-			//				}
-			//			}
-
-			try {
-				final Field field = String.class.getDeclaredField("value");
-				field.setAccessible(true);
-				long total = 0;
-				long aCount = 0;
-				long bCount = 0;
-				final char[] chars = (char[]) field.get(s);
-				final int len = chars.length;
-				for (long i = 0; i < n; i++) {
-					for (int j = 0; j < len; j++) {
-						if (chars[j] == 'a') {
-							aCount++;
-						} else if (chars[j] == 'b') {
-							bCount++;
-						} else {
-							throw new Exception();
-						}
-						if (aCount > bCount) {
-							total++;
-						}
-					}
-				}
-				System.out.println(total);
-			} catch (Exception ex) {
-			}
+			int n = nI();
+			System.out.println(n / 2);
 		}
+
 	}
 
 

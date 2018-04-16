@@ -1,16 +1,15 @@
-package com.codechef.pankaj;
+package com.codechef.pankajmahato.kqm92018;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
-public class ChefJudge {
-
-	//Chef Judges a Competition
-	//https://www.codechef.com/COOK92B/problems/CO92JUDG
-
+public class RhymingWords {
+	// Rhyming Words (keteki)
+	// https://www.codechef.com/KQM92018/problems/QM9A
 	private static InputStream stream;
 	private static byte[] buf = new byte[1024];
 	private static int curChar;
@@ -22,36 +21,89 @@ public class ChefJudge {
 
 
 
-	public static void main(String[] args) throws IOException {
-		InputReader(System.in);
-		int testCases = nI();
-		while (testCases-- > 0) {
-			int n = nI();
-			int[] a = new int[n];
-			int[] b = new int[n];
-			int maxA = Integer.MIN_VALUE;
-			int maxB = Integer.MIN_VALUE;
-			int sumA = 0, sumB = 0;
-			for (int i = 0; i < n; i++) {
-				a[i] = nI();
-				sumA += a[i];
-				maxA = Math.max(a[i], maxA);
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		for (int i = 0; i < t; i++) {
+			int n = sc.nextInt();
+			//System.out.println(n+ " ");
+			//String str  =  sc.next();
+			//System.out.println(str+ " ");
+			String[] splited = new String[n];
+			int a = 0, e = 0, u = 0, ii = 0, o = 0;
+			for (int j = 0; j < n; j++) {
+				try {
+					splited[j] = sc.next();
+					char[] c = splited[j].toCharArray();
+					for (int k = c.length - 1; k >= 0; k--) {
+						if (c[k] == 'a') {
+							a++;
+							break;
+						}
+						if (c[k] == 'e') {
+							e++;
+							break;
+						}
+						if (c[k] == 'i') {
+							ii++;
+							break;
+						}
+						if (c[k] == 'u') {
+							u++;
+							break;
+						}
+						if (c[k] == 'o') {
+							o++;
+							break;
+						}
+					}
+
+
+				} catch (Exception ee) {
+
+				}
+
 			}
-			for (int i = 0; i < n; i++) {
-				b[i] = nI();
-				sumB += b[i];
-				maxB = Math.max(b[i], maxB);
+			int count = 0;
+			if (a > 1) {
+				count = count + a;
 			}
-			sumA -= maxA;
-			sumB -= maxB;
-			if (sumA < sumB) {
-				System.out.println("Alice");
-			} else if (sumB < sumA) {
-				System.out.println("Bob");
-			} else {
-				System.out.println("Draw");
+			if (e > 1) {
+				count = count + e;
+			}
+			if (ii > 1) {
+				count = count + ii;
+			}
+			if (u > 1) {
+				count = count + u;
+			}
+			if (o > 1) {
+				count = count + o;
+			}
+			System.out.println(count);
+		}
+
+	}
+
+
+
+
+
+	private static int indexLastVowel(String s) {
+		for (int i = s.length() - 1; i >= 0; i--) {
+			switch (s.charAt(i)) {
+			case 'a':
+			case 'e':
+			case 'i':
+			case 'o':
+			case 'u':
+				return i;
+			default:
+				break;
 			}
 		}
+
+		return -1;
 	}
 
 
