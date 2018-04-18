@@ -3,193 +3,367 @@ package com.codechef.pankajmahato.april18b;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.InputMismatchException;
 
 public class WeightOfNumbers {
 
-	//Weight of Numbers
-	//https://www.codechef.com/APRIL18B/problems/WGHTNUM
-
-	private static InputStream stream;
-	private static byte[] buf = new byte[1024];
-	private static int curChar;
-	private static int numChars;
-	private static SpaceCharFilter filter;
-	static BufferedWriter log = new BufferedWriter(new OutputStreamWriter(System.out));
-
-
-
+	// Weight of Numbers
+	// https://www.codechef.com/APRIL18B/problems/WGHTNUM
 
 
 	public static void main(String[] args) throws IOException {
-		InputReader(System.in);
-
-		int t = nI();
-		if (t > 100000 || t < 1) {
-			return;
+		InputReader in = new InputReader(System.in);
+		OutputWriter out = new OutputWriter(System.out);
+		Task task = new Task();
+		final int T = in.readInt();
+		for (int t = 0; t <= T - 1; ++t) {
+			task.solve(in, out);
 		}
+		closeStreams(out, in);
+	}
 
-		while (t-- > 0) {
-			long n = nL();
-			if (n > 100000000000000000L || n < 2) {
-				return;
+
+	static class Task {
+		// https://www.geeksforgeeks.org/modular-exponentiation-power-in-modular-arithmetic/
+		public static long pow(long x, long y, long m) {
+			long res = 1;
+			x = x % m;
+			while (y > 0) {
+				if ((y & 1) == 1)
+					res = (res * x) % m;
+
+				y = y >> 1;
+				x = (x * x) % m;
 			}
-			int w = nI();
-			if (w > 300 || w < 0) {
-				return;
+			return res;
+		}
+
+
+
+
+
+		public void solve(InputReader in, OutputWriter out) {
+			long M = 1000000007;
+			long N = in.readLong();
+			int W = in.readInt();
+			if (W >= 10 || W <= -10) {
+				out.printLine(0);
+			} else {
+				long ans = 0;
+				if (W >= 0)
+					ans = ((pow(10, N - 2, M) % M) * ((9 - W) % M)) % M;
+				else
+					ans = ((pow(10, N - 2, M) % M) * ((10 + W) % M)) % M;
+				out.printLine(ans);
 			}
-
-			long count = (long) ((9 - w) * Math.pow(10, n - 2));
-			System.out.println(count % 1000000007);
 		}
+
 	}
 
 
 
 
 
-	public static void InputReader(InputStream stream1) {
-		stream = stream1;
+	private static void closeStreams(OutputWriter out, InputReader in) throws IOException {
+		out.flush();
+		out.close();
+		in.close();
 	}
 
+	static class InputReader {
 
-
-
-
-	private static boolean isWhitespace(int c) {
-		return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-	}
-
-
-
-
-
-	private static boolean isEndOfLine(int c) {
-		return c == '\n' || c == '\r' || c == -1;
-	}
+		private InputStream stream;
+		private byte[] buf = new byte[1024];
+		private int curChar;
+		private int numChars;
+		private SpaceCharFilter filter;
 
 
 
 
 
-	private static int read() {
-		if (numChars == -1) {
-			throw new InputMismatchException();
+		public InputReader(InputStream stream) {
+			this.stream = stream;
 		}
-		if (curChar >= numChars) {
-			curChar = 0;
-			try {
-				numChars = stream.read(buf);
-			} catch (IOException e) {
+
+
+
+
+
+		public int read() {
+			if (numChars == -1)
 				throw new InputMismatchException();
+			if (curChar >= numChars) {
+				curChar = 0;
+				try {
+					numChars = stream.read(buf);
+				} catch (IOException e) {
+					throw new InputMismatchException();
+				}
+				if (numChars <= 0)
+					return -1;
 			}
-			if (numChars <= 0) {
-				return -1;
+			return buf[curChar++];
+		}
+
+
+
+
+
+		public int readInt() {
+			int c = read();
+			while (isSpaceChar(c))
+				c = read();
+			int sgn = 1;
+			if (c == '-') {
+				sgn = -1;
+				c = read();
+			}
+			int res = 0;
+			do {
+				if (c < '0' || c > '9')
+					throw new InputMismatchException();
+				res *= 10;
+				res += c - '0';
+				c = read();
+			} while (!isSpaceChar(c));
+			return res * sgn;
+		}
+
+
+
+
+
+		public double readDouble() {
+			int c = read();
+			while (isSpaceChar(c)) {
+				c = read();
+			}
+			int sgn = 1;
+			if (c == '-') {
+				sgn = -1;
+				c = read();
+			}
+			double res = 0;
+			while (!isSpaceChar(c) && c != '.') {
+				if (c == 'e' || c == 'E') {
+					return res * Math.pow(10, readInt());
+				}
+				if (c < '0' || c > '9') {
+					throw new InputMismatchException();
+				}
+				res *= 10;
+				res += c - '0';
+				c = read();
+			}
+			if (c == '.') {
+				c = read();
+				double m = 1;
+				while (!isSpaceChar(c)) {
+					if (c == 'e' || c == 'E') {
+						return res * Math.pow(10, readInt());
+					}
+					if (c < '0' || c > '9') {
+						throw new InputMismatchException();
+					}
+					m /= 10;
+					res += (c - '0') * m;
+					c = read();
+				}
+			}
+			return res * sgn;
+		}
+
+
+
+
+
+		public long readLong() {
+			int c = read();
+			while (isSpaceChar(c)) {
+				c = read();
+			}
+			int sgn = 1;
+			if (c == '-') {
+				sgn = -1;
+				c = read();
+			}
+			long res = 0;
+			do {
+				if (c < '0' || c > '9') {
+					throw new InputMismatchException();
+				}
+				res *= 10;
+				res += c - '0';
+				c = read();
+			} while (!isSpaceChar(c));
+			return res * sgn;
+		}
+
+
+
+
+
+		public String readString() {
+			int c = read();
+			while (isSpaceChar(c))
+				c = read();
+			StringBuilder res = new StringBuilder();
+			do {
+				res.appendCodePoint(c);
+				c = read();
+			} while (!isSpaceChar(c));
+			return res.toString();
+		}
+
+
+
+
+
+		public boolean isSpaceChar(int c) {
+			if (filter != null) {
+				return filter.isSpaceChar(c);
+			}
+			return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
+		}
+
+
+
+
+
+		public boolean isEndOfLine(int c) {
+			if (filter != null) {
+				return filter.isEndOfLine(c);
+			}
+			return c == '\n' || c == '\r' || c == -1;
+		}
+
+
+
+
+
+		public String next() {
+			return readString();
+		}
+
+
+
+
+
+		public void close() throws IOException {
+			this.stream.close();
+		}
+
+		public interface SpaceCharFilter {
+			boolean isSpaceChar(int ch);
+
+
+
+
+
+			boolean isEndOfLine(int ch);
+		}
+
+	}
+
+	static class IOUtils {
+
+		public static int[] readIntArray(InputReader in, int elementCount) {
+			return readIntArray(in, elementCount, 0);
+		}
+
+
+
+
+
+		public static int[] readIntArray(InputReader in, int elementCount, int startOffset) {
+			int[] array = new int[elementCount + startOffset];
+			for (int i = 0; i < elementCount; i++)
+				array[i + startOffset] = in.readInt();
+			return array;
+		}
+
+
+
+
+
+		public static long[] readLongArray(InputReader in, int elementCount) {
+			return readLongArray(in, elementCount, 0);
+		}
+
+
+
+
+
+		public static long[] readLongArray(InputReader in, int elementCount, int startOffset) {
+			long[] array = new long[elementCount + startOffset];
+			for (int i = 0; i < elementCount; i++)
+				array[i + startOffset] = in.readLong();
+			return array;
+		}
+
+	}
+
+	static class OutputWriter {
+
+		private final PrintWriter writer;
+
+
+
+
+
+		public OutputWriter(OutputStream outputStream) {
+			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
+		}
+
+
+
+
+
+		public OutputWriter(Writer writer) {
+			this.writer = new PrintWriter(writer);
+		}
+
+
+
+
+
+		public void print(Object... objects) {
+			for (int i = 0; i < objects.length; i++) {
+				if (i != 0)
+					writer.print(' ');
+				writer.print(objects[i]);
 			}
 		}
-		return buf[curChar++];
-	}
 
 
 
 
 
-	private static int nI() {
-		int c = read();
-		while (isSpaceChar(c)) {
-			c = read();
+		public void printLine(Object... objects) {
+			print(objects);
+			writer.println();
 		}
-		int sgn = 1;
-		if (c == '-') {
-			sgn = -1;
-			c = read();
+
+
+
+
+
+		public void close() {
+			writer.close();
 		}
-		int res = 0;
-		do {
-			if (c < '0' || c > '9') {
-				throw new InputMismatchException();
-			}
-			res *= 10;
-			res += c - '0';
-			c = read();
-		} while (!isSpaceChar(c));
-		return res * sgn;
-	}
 
 
 
 
 
-	private static long nL() {
-		int c = read();
-		while (isSpaceChar(c)) {
-			c = read();
+		public void flush() {
+			writer.flush();
 		}
-		int sgn = 1;
-		if (c == '-') {
-			sgn = -1;
-			c = read();
-		}
-		long res = 0;
-		do {
-			if (c < '0' || c > '9') {
-				throw new InputMismatchException();
-			}
-			res *= 10;
-			res += c - '0';
-			c = read();
-		} while (!isSpaceChar(c));
-		return res * sgn;
-	}
 
-
-
-
-
-	private static String nS() {
-		int c = read();
-		while (isSpaceChar(c)) {
-			c = read();
-		}
-		StringBuilder res = new StringBuilder();
-		do {
-			res.appendCodePoint(c);
-			c = read();
-		} while (!isSpaceChar(c));
-		return res.toString();
-	}
-
-
-
-
-
-	private static String nLi() {
-		int c = read();
-		while (isSpaceChar(c)) {
-			c = read();
-		}
-		StringBuilder res = new StringBuilder();
-		do {
-			res.appendCodePoint(c);
-			c = read();
-		} while (!isEndOfLine(c));
-		return res.toString();
-	}
-
-
-
-
-
-	private static boolean isSpaceChar(int c) {
-		if (filter != null) {
-			return filter.isSpaceChar(c);
-		}
-		return isWhitespace(c);
-	}
-
-	private interface SpaceCharFilter {
-
-		public boolean isSpaceChar(int ch);
 	}
 }
