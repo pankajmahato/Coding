@@ -32,43 +32,39 @@ public class GoodPrefix {
 		public void solve(InputReader in, OutputWriter out) {
 			String s = in.readString();
 			int n = in.readInt();
-			System.out.println(getCount(s, n));
-		}
-
-
-
-
-
-		private long getCount(String s, int n) {
 			long length = s.length();
-			long aCount = 0;
-			long bCount = 0;
-			long currCount = 0;
-			long finalCount = 0;
 			long prevCount = 0;
-			for (int j = 0; j < n; j++) {
-				prevCount = currCount;
+			long currCount = 0;
+			long totalCount = 0;
+			long i = 1;
+			long count_a = 0, count_b = 0;
+			while (i <= n) {
 				currCount = 0;
-				for (int i = 0; i < length; i++) {
-					if (s.charAt(i) == 'a')
-						aCount++;
-					else
-						bCount++;
-
-					if (aCount > bCount)
+				for (int j = 0; j < length; j++) {
+					if (s.charAt(j) == 'a') {
+						count_a++;
+					} else {
+						count_b++;
+					}
+					if (count_a > count_b) {
 						currCount++;
+					}
 				}
-				finalCount += currCount;
-				if (currCount == 0)
-					return finalCount;
-				else if (currCount == prevCount)
-					return (finalCount + (currCount) * (long) (n - 1 - j));
-				else if (currCount == length)
-					return (finalCount + (length) * (long) (n - 1 - j));
-			}
-			return finalCount;
-		}
+				totalCount += currCount;
+				if (prevCount == currCount) {
+					break;
+				}
 
+				prevCount = currCount;
+				i++;
+			}
+			if (i > n) {
+				System.out.println(totalCount);
+			} else {
+				long ans = totalCount + (n - i) * currCount;
+				System.out.println(ans);
+			}
+		}
 	}
 
 
