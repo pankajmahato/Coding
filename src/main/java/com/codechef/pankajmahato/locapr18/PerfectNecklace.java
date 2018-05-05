@@ -43,7 +43,7 @@ public class PerfectNecklace {
 			for (int i = 1; i <= q; i++) {
 				int x = in.readInt();
 				int y = in.readInt();
-				getCombination(beauty, beauty.length, x, combinations);
+				getCombination(beauty, beauty.length, x, true, combinations);
 				int sum = 9999999;
 				for (List<Integer> row : combinations) {
 					// For Java 7
@@ -78,6 +78,7 @@ public class PerfectNecklace {
 				}
 				out.printLine(sum);
 				//				System.out.println(sum);
+				out.flush();
 			}
 		}
 
@@ -124,12 +125,22 @@ public class PerfectNecklace {
 
 		// The main function that prints all combinations of size r
 		// in arr[] of size n. This function mainly uses combinationUtil()
-		static void getCombination(int arr[], int n, int r, List<List<Integer>> combinations) {
+		static void getCombination(int arr[], int n, int r, boolean repeated, List<List<Integer>> combinations) {
 			// A temporary array to store all combination one by one
 			int data[] = new int[r];
 
 			// Print all combination using temprary array 'data[]'
 			combinationUtil(arr, data, 0, n - 1, 0, r, combinations);
+
+			if (repeated) {
+				for (int i = 0; i < arr.length; i++) {
+					List<Integer> list = new ArrayList<>();
+					for (int j = 0; j < r; j++) {
+						list.add(arr[i]);
+					}
+					combinations.add(list);
+				}
+			}
 		}
 	}
 
