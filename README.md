@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | [Solution](./src/main/java/com/leetcode/pankajmahato/_2_Add_Two_Numbers.java)|Medium|
 |1|[Two Sum](https://leetcode.com/problems/two-sum/) | [Solution](./src/main/java/com/leetcode/pankajmahato/_1_Two_Sum.java)|Easy|
 
 
