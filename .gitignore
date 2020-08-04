@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,macos,intellij+all,eclipse,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,intellij+all,eclipse,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,eclipse,intellij+all,visualstudiocode,maven
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,eclipse,intellij+all,visualstudiocode,maven
 
 ### Eclipse ###
 .metadata
@@ -185,6 +185,19 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -223,4 +236,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,macos,intellij+all,eclipse,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/macos,windows,eclipse,intellij+all,visualstudiocode,maven
