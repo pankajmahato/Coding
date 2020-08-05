@@ -21,7 +21,7 @@
  *
  **********************************************************************************/
 
-package com.leetcode.pankajmahato;
+package com.leetcode.pankajmahato.algorithms.medium;
 
 import java.util.HashSet;
 import java.util.Set;

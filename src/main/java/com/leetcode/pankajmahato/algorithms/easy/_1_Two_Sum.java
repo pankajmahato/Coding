@@ -13,7 +13,7 @@
  *
  **********************************************************************************/
 
-package com.leetcode.pankajmahato;
+package com.leetcode.pankajmahato.algorithms.easy;
 
 import java.util.HashMap;
 import java.util.Map;

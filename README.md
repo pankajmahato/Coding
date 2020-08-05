@@ -6,9 +6,9 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
-|3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Solution](./src/main/java/com/leetcode/pankajmahato/_3_Longest_Substring_Without_Repeating_Characters.java)|Medium|
-|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | [Solution](./src/main/java/com/leetcode/pankajmahato/_2_Add_Two_Numbers.java)|Medium|
-|1|[Two Sum](https://leetcode.com/problems/two-sum/) | [Solution](./src/main/java/com/leetcode/pankajmahato/_1_Two_Sum.java)|Easy|
+|3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_3_Longest_Substring_Without_Repeating_Characters.java)|Medium|
+|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_2_Add_Two_Numbers.java)|Medium|
+|1|[Two Sum](https://leetcode.com/problems/two-sum/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_1_Two_Sum.java)|Easy|
 
 
 CodeChef

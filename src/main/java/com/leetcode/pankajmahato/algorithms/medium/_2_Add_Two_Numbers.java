@@ -12,7 +12,7 @@
  *
  **********************************************************************************/
 
-package com.leetcode.pankajmahato;
+package com.leetcode.pankajmahato.algorithms.medium;
 
 public class _2_Add_Two_Numbers {
 
