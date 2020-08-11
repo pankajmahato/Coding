@@ -1,4 +1,4 @@
-package com.codechef.pankajmahato.cook92b;
+package com.codechef.pankajmahato.compete.cook92b;
 
 import java.util.Scanner;
 

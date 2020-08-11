@@ -1,4 +1,4 @@
-package com.codechef.pankajmahato.cook92b;
+package com.codechef.pankajmahato.compete.cook92b;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -6,122 +6,51 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.util.InputMismatchException;
 
-public class ChefMatrix {
+public class ChefJudge {
 
-	//Chef Restores a Matrix
-	//https://www.codechef.com/COOK92B/problems/CO92MATR
+	//Chef Judges a Competition
+	//https://www.codechef.com/COOK92B/problems/CO92JUDG
+
 	private static InputStream stream;
 	private static byte[] buf = new byte[1024];
 	private static int curChar;
 	private static int numChars;
 	private static SpaceCharFilter filter;
 	static BufferedWriter log = new BufferedWriter(new OutputStreamWriter(System.out));
-	private static long MAX = 2000000000;
 
 
 
 
 
 	public static void main(String[] args) throws IOException {
-		// System.setIn(new FileInputStream("d:\\programming\\case.txt"));
 		InputReader(System.in);
 		int testCases = nI();
 		while (testCases-- > 0) {
 			int n = nI();
-			int m = nI();
-			long[][] a = new long[n][m];
-			boolean isPossible = true;
+			int[] a = new int[n];
+			int[] b = new int[n];
+			int maxA = Integer.MIN_VALUE;
+			int maxB = Integer.MIN_VALUE;
+			int sumA = 0, sumB = 0;
 			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < m; j++) {
-					a[i][j] = nL();
-				}
+				a[i] = nI();
+				sumA += a[i];
+				maxA = Math.max(a[i], maxA);
 			}
-			if (processRow(a, n - 1, m - 1) && processColumn(a, n - 1, m - 1)) {
-				Outer: for (int i = n - 1; i >= 0; i--) {
-					for (int j = m - 1; j >= 0; j--) {
-						if (a[i][j] == -1) {
-							a[i][j] = Math.min(a[i + 1][j], a[i][j + 1]);
-						}
-						if (i != n - 1 && j != m - 1) {
-							if (a[i][j] > a[i][j + 1] || a[i][j] > a[i + 1][j]) {
-								isPossible = false;
-								break Outer;
-							}
-						}
-					}
-				}
+			for (int i = 0; i < n; i++) {
+				b[i] = nI();
+				sumB += b[i];
+				maxB = Math.max(b[i], maxB);
+			}
+			sumA -= maxA;
+			sumB -= maxB;
+			if (sumA < sumB) {
+				System.out.println("Alice");
+			} else if (sumB < sumA) {
+				System.out.println("Bob");
 			} else {
-				isPossible = false;
+				System.out.println("Draw");
 			}
-			if (isPossible) {
-				printMatrix(a);
-			} else {
-				log.write("-1\n");
-			}
-		}
-		log.flush();
-	}
-
-
-
-
-
-	public static boolean processRow(long[][] a, int i, int j) {
-		boolean isPossible = true;
-		long max = a[i][j];
-		if (max == -1) {
-			max = MAX;
-			a[i][j] = MAX;
-		}
-		for (int c = j - 1; c >= 0; c--) {
-			if (a[i][c] == -1) {
-				a[i][c] = max;
-			} else {
-				max = a[i][c];
-				if (a[i][c] > a[i][c + 1]) {
-					isPossible = false;
-					break;
-				}
-			}
-		}
-		return isPossible;
-	}
-
-
-
-
-
-	public static boolean processColumn(long[][] a, int i, int j) {
-		boolean isPossible = true;
-		long max = a[i][j];
-		if (max == -1) {
-			max = MAX;
-			a[i][j] = MAX;
-		}
-		for (int c = i - 1; c >= 0; c--) {
-			if (a[c][j] == -1) {
-				a[c][j] = max;
-			} else {
-				max = a[c][j];
-				if (a[c][j] > a[c + 1][j]) {
-					isPossible = false;
-					break;
-				}
-			}
-		}
-		return isPossible;
-	}
-
-
-
-
-
-	public static void printMatrix(long[][] a) throws IOException {
-		for (int i = 0; i < a.length; i++) {
-			for (int j = 0; j < a[0].length; j++) {
-				log.write(String.valueOf(a[i][j] + " "));
-			}
-			log.write("\n");
 		}
 	}
 

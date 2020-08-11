@@ -1,4 +1,4 @@
-package com.codechef.pankajmahato.april18b;
+package com.codechef.pankajmahato.compete.april18b;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -9,10 +9,10 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.InputMismatchException;
 
-public class WeightOfNumbers {
+public class GoodPrefix {
 
-	// Weight of Numbers
-	// https://www.codechef.com/APRIL18B/problems/WGHTNUM
+	//Count Good Prefixes
+	//https://www.codechef.com/APRIL18B/problems/GOODPREF
 
 
 	public static void main(String[] args) throws IOException {
@@ -26,42 +26,45 @@ public class WeightOfNumbers {
 		closeStreams(out, in);
 	}
 
-
 	static class Task {
-		// https://www.geeksforgeeks.org/modular-exponentiation-power-in-modular-arithmetic/
-		public static long pow(long x, long y, long m) {
-			long res = 1;
-			x = x % m;
-			while (y > 0) {
-				if ((y & 1) == 1)
-					res = (res * x) % m;
-
-				y = y >> 1;
-				x = (x * x) % m;
-			}
-			return res;
-		}
-
-
-
 
 
 		public void solve(InputReader in, OutputWriter out) {
-			long M = 1000000007;
-			long N = in.readLong();
-			int W = in.readInt();
-			if (W >= 10 || W <= -10) {
-				out.printLine(0);
+			String s = in.readString();
+			int n = in.readInt();
+			long length = s.length();
+			long prevCount = 0;
+			long currCount = 0;
+			long totalCount = 0;
+			long i = 1;
+			long count_a = 0, count_b = 0;
+			while (i <= n) {
+				currCount = 0;
+				for (int j = 0; j < length; j++) {
+					if (s.charAt(j) == 'a') {
+						count_a++;
+					} else {
+						count_b++;
+					}
+					if (count_a > count_b) {
+						currCount++;
+					}
+				}
+				totalCount += currCount;
+				if (prevCount == currCount) {
+					break;
+				}
+
+				prevCount = currCount;
+				i++;
+			}
+			if (i > n) {
+				System.out.println(totalCount);
 			} else {
-				long ans = 0;
-				if (W >= 0)
-					ans = ((pow(10, N - 2, M) % M) * ((9 - W) % M)) % M;
-				else
-					ans = ((pow(10, N - 2, M) % M) * ((10 + W) % M)) % M;
-				out.printLine(ans);
+				long ans = totalCount + (n - i) * currCount;
+				System.out.println(ans);
 			}
 		}
-
 	}
 
 

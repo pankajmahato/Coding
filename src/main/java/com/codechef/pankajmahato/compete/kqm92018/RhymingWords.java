@@ -1,4 +1,4 @@
-package com.codechef.pankajmahato.kqm92018;
+package com.codechef.pankajmahato.compete.kqm92018;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.codechef.pankajmahato.april18b;
+package com.codechef.pankajmahato.compete.kqm92018;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -6,11 +6,9 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.util.InputMismatchException;
 
-public class Workers {
-
-	//Workers
-	//https://www.codechef.com/APRIL18B/problems/CHEFWORK
-
+public class CountSum {
+	// Count Sum (keteki)
+	// https://www.codechef.com/KQM92018/problems/QM9B
 	private static InputStream stream;
 	private static byte[] buf = new byte[1024];
 	private static int curChar;
@@ -22,40 +20,14 @@ public class Workers {
 
 
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		InputReader(System.in);
-
-		int n = nI();
-		if (n > 1000 || n < 1) {
-			return;
-		}
-		int[] c = new int[n];
-		int[] t = new int[n];
-		int[] tType = { 0, 100000, 100000, 100000 };
-
-		for (int i = 0; i < n; i++) {
-			c[i] = nI();
-			if (c[i] < 1 || c[i] > 100000) {
-				return;
-			}
+		int testCases = nI();
+		while (testCases-- > 0) {
+			int n = nI();
+			System.out.println(n / 2);
 		}
 
-		for (int i = 0; i < n; i++) {
-			t[i] = nI();
-			if (t[i] > 3 || t[i] < 1) {
-				return;
-			}
-			if (tType[t[i]] > c[i]) {
-				tType[t[i]] = c[i];
-			}
-		}
-
-		int suma = tType[1] + tType[2];
-		if (suma < tType[3]) {
-			System.out.println(suma);
-		} else {
-			System.out.println(tType[3]);
-		}
 	}
 
 
