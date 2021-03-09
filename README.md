@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|14|[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_14_Longest_Common_Prefix.java)|Easy|
 |242|[Valid Anagram](https://leetcode.com/problems/valid-anagram/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_242_Valid_Anagram.java)|Easy|
 |3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_3_Longest_Substring_Without_Repeating_Characters.java)|Medium|
 |2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_2_Add_Two_Numbers.java)|Medium|
