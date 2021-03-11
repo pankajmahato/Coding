@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|56|[Merge Intervals](https://leetcode.com/problems/merge-intervals/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_56_Merge_Intervals.java)|Medium|
 |43|[Multiply Strings](https://leetcode.com/problems/multiply-strings/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_43_Multiply_Strings.java)|Medium|
 |49|[Group Anagrams](https://leetcode.com/problems/group-anagrams/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_49_Group_Anagrams.java)|Medium|
 |14|[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_14_Longest_Common_Prefix.java)|Easy|
