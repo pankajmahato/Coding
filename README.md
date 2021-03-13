@@ -6,7 +6,8 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
-|1115|[Print FooBar Alternately](https://leetcode.com/problems/interval-list-intersections/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_1115_Print_FooBar_Alternately.java)|Medium|
+|1114|[Print in Order](https://leetcode.com/problems/print-in-order/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_1114_Print_in_Order.java)|Easy|
+|1115|[Print FooBar Alternately](https://leetcode.com/problems/print-foobar-alternately/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_1115_Print_FooBar_Alternately.java)|Medium|
 |986|[Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_986_Interval_List_Intersections.java)|Medium|
 |56|[Merge Intervals](https://leetcode.com/problems/merge-intervals/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_56_Merge_Intervals.java)|Medium|
 |43|[Multiply Strings](https://leetcode.com/problems/multiply-strings/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_43_Multiply_Strings.java)|Medium|
