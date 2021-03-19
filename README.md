@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|41|[First Missing Positive](https://leetcode.com/problems/first-missing-positive/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/hard/_41_First_Missing_Positive.java)|Hard|
 |121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_121_Best_Time_to_Buy_and_Sell_Stock.java)|Easy|
 |11|[Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_11_Container_With_Most_Water.java)|Medium|
 |151|[Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_151_Reverse_Words_in_a_String.java)|Medium|
