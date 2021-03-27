@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|200|[Number of Islands](https://leetcode.com/problems/number-of-islands/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_200_Number_of_Islands.java|Medium|
 |287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_287_Find_the_Number.java|Medium|
 |448|[Find All Numbers Disappeared in an Arrayr](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_448_Find_All_Numbers_Disappeared_in_an_Array.java)|Easy|
 |268|[Missing Number](https://leetcode.com/problems/missing-number/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_268_Missing_Number.java)|Easy|
