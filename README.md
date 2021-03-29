@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|146|[LRU Cache](https://leetcode.com/problems/lru-cache/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_146_LRU_Cache.java|Medium|
 |230|[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_230_Kth_Smallest_Element_in_a_BST.java|Medium|
 |200|[Number of Islands](https://leetcode.com/problems/number-of-islands/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_200_Number_of_Islands.java|Medium|
 |287|[Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_287_Find_the_Number.java|Medium|
