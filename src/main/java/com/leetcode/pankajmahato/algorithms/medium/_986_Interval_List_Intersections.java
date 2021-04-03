@@ -44,20 +44,28 @@
 
 package com.leetcode.pankajmahato.algorithms.medium;
 
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class _986_Interval_List_Intersections {
-    public int[][] merge(int[][] intervals) {
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
-        LinkedList<int[]> result = new LinkedList<>();
-        for (int[] interval : intervals) {
-            if (result.isEmpty() || result.getLast()[1] < interval[0]) {
-                result.add(interval);
+    public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
+        List<int[]> res = new ArrayList<>();
+        int i = 0;
+        int j = 0;
+        while (i < firstList.length && j < secondList.length) {
+            int[] a = firstList[i];
+            int[] b = secondList[j];
+            int low = Math.max(a[0], b[0]);
+            int hi = Math.min(a[1], b[1]);
+            if (low <= hi) {
+                res.add(new int[]{low, hi});
+            }
+            if (a[1] < b[1]) {
+                i++;
             } else {
-                result.getLast()[1] = Math.max(result.getLast()[1], interval[1]);
+                j++;
             }
         }
-        return result.toArray(new int[result.size()][]);
+        return res.toArray(new int[res.size()][]);
     }
 }
