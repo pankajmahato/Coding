@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|33|[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_33_Search_in_Rotated_Sorted_Array.java|Medium|
 |34|[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_34_Find_First_and_Last_Position_of_Element_in_Sorted_Array.java|Medium|
 |146|[LRU Cache](https://leetcode.com/problems/lru-cache/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_146_LRU_Cache.java|Medium|
 |230|[Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_230_Kth_Smallest_Element_in_a_BST.java|Medium|
