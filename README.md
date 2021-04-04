@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|1351|[Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_1351_Count_Negative_Numbers_in_a_Sorted_Matrix.java|Easy|
 |34|[Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_81_Search_in_Rotated_Sorted_Array_II.java|Medium|
 |33|[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_33_Search_in_Rotated_Sorted_Array.java|Medium|
 |34|[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_34_Find_First_and_Last_Position_of_Element_in_Sorted_Array.java|Medium|
