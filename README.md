@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|36|[Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_36_Valid_Sudoku.java)|Medium|
 |863|[All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_863_All_Nodes_Distance_K_in_Binary_Tree.java)|Medium|
 |162|[Find Peak Element](https://leetcode.com/problems/find-peak-element/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_162_Find_Peak_Element.java)|Medium|
 |744|[Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_744_Find_Smallest_Letter_Greater_Than_Target.java)|Easy|
