@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|128|[Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/hard/_128_Longest_Consecutive_Sequence.java)|Hard|
 |442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_442_Find_All_Duplicates_in_an_Array.java)|Medium|
 |4|[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/hard/_4_Median_of_Two_Sorted_Arrays.java)|Hard|
 |37|[Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/hard/_37_Sudoku_Solver.java)|Hard|
