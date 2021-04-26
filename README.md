@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|221|[Maximal Square](https://leetcode.com/problems/maximal-square/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_221_Maximal_Square.java)|Medium|
 |73|[Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_73_Set_Matrix_Zeroes.java)|Medium|
 |128|[Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/hard/_128_Longest_Consecutive_Sequence.java)|Hard|
 |442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_442_Find_All_Duplicates_in_an_Array.java)|Medium|
