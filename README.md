@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|74|[Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_74_Search_a_2D_Matrix.java)|Medium|
 |23|[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/hard/_23_Merge_k_Sorted_Lists.java)|Hard|
 |221|[Maximal Square](https://leetcode.com/problems/maximal-square/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_221_Maximal_Square.java)|Medium|
 |73|[Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_73_Set_Matrix_Zeroes.java)|Medium|
