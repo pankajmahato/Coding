@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_88_Merge_Sorted_Array.java)|Easy|
 |240|[Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_240_Search_a_2D_Matrix_II.java)|Medium|
 |74|[Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_74_Search_a_2D_Matrix.java)|Medium|
 |23|[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/hard/_23_Merge_k_Sorted_Lists.java)|Hard|
