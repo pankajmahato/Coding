@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_7_Reverse_Integer.java)|Easy|
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_53_Maximum_Subarray.java)|Easy|
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_88_Merge_Sorted_Array.java)|Easy|
 |240|[Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_240_Search_a_2D_Matrix_II.java)|Medium|
