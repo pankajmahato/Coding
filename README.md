@@ -6,6 +6,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|797|[All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_797_All_Paths_From_Source_to_Target.java)|Medium|
 |42|[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/hard/_42_Trapping_Rain_Water.java)|Hard|
 |7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_7_Reverse_Integer.java)|Easy|
 |53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_53_Maximum_Subarray.java)|Easy|
