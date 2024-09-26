@@ -6,6 +6,7 @@ LeetCode
 
 | #    | Title | Solution                                                                                                                                 | Difficulty |
 |------| ----- |------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| 203  |[Remove Linked List Elements](https://leetcode.com/problems/merge-two-sorted-lists/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_203_Remove_Linked_List_Elements.java)                                         | Easy       |
 | 21   |[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_21_Merge_Two_Sorted_Lists.java)                                         | Easy       |
 | 179  |[Largest Number](https://leetcode.com/problems/largest-number/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_179_Largest_Number.java)                                         | Medium     |
 | 27   |[Remove Element](https://leetcode.com/problems/remove-element/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_27_Remove_Element.java)                                            | Easy       |

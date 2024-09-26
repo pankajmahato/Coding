@@ -35,24 +35,25 @@
 
 package com.leetcode.pankajmahato.algorithms.easy;
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
 
 public class _21_Merge_Two_Sorted_Lists {
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
         if (list1 == null) {
@@ -71,5 +72,10 @@ public class _21_Merge_Two_Sorted_Lists {
 
         return list1 != null ? list1 : list2;
     }
-    
+
+    public static void main(String[] args) {
+        ListNode list1 = new ListNode(1, new ListNode(2, new ListNode(4)));
+        ListNode list2 = new ListNode(1, new ListNode(3, new ListNode(4)));
+        ListNode listNode = new _21_Merge_Two_Sorted_Lists().mergeTwoLists(list1, list2);
+    }
 }
