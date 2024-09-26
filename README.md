@@ -6,7 +6,8 @@ LeetCode
 
 | #    | Title | Solution                                                                                                                                 | Difficulty |
 |------| ----- |------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| 179   |[Largest Number](https://leetcode.com/problems/largest-number/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_179_Largest_Number.java)                                         | Medium     |
+| 21   |[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_21_Merge_Two_Sorted_Lists.java)                                         | Easy       |
+| 179  |[Largest Number](https://leetcode.com/problems/largest-number/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_179_Largest_Number.java)                                         | Medium     |
 | 27   |[Remove Element](https://leetcode.com/problems/remove-element/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/easy/_27_Remove_Element.java)                                            | Easy       |
 | 17   |[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_17_Letter_Combinations_of_a_Phone_Number.java)                   | Medium     |
 | 797  |[All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/) | [Solution](./src/main/java/com/leetcode/pankajmahato/algorithms/medium/_797_All_Paths_From_Source_to_Target.java)                        | Medium     |
