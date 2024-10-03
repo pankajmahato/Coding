@@ -59,7 +59,7 @@ public class _386_Lexicographical_Numbers {
     }
 
     public static void main(String[] args) {
-        _386_Lexicographical_Numbers1 obj = new _386_Lexicographical_Numbers1();
+        _386_Lexicographical_Numbers obj = new _386_Lexicographical_Numbers();
         System.out.println(obj.lexicalOrder(13));
     }
 }
