@@ -43,10 +43,8 @@
 
 package com.leetcode.pankajmahato.algorithms.hard;
 
-import java.util.PriorityQueue;
-
 public class _23_Merge_k_Sorted_Lists {
-    class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 
@@ -63,50 +61,43 @@ public class _23_Merge_k_Sorted_Lists {
         }
     }
 
-    class Item implements Comparable<Item> {
-        int val;
-        ListNode next;
-
-        Item(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        public int compareTo(Item o) {
-            return this.val - o.val;
-        }
-    }
-
     public ListNode mergeKLists(ListNode[] lists) {
 
         if (lists.length == 0) {
             return null;
         }
+        return partitionAndMerge(lists, 0, lists.length - 1);
 
-        PriorityQueue<Item> queue = new PriorityQueue<>(lists.length);
-        ListNode res = new ListNode();
-        ListNode head = res;
+    }
 
-        for (ListNode node : lists) {
-            if (node != null) {
-                Item item = new Item(node.val, node.next);
-                queue.add(item);
-            }
+    private ListNode partitionAndMerge(ListNode[] lists, int start, int end) {
+
+        if (start == end) {
+            return lists[start];
         }
 
-        while (queue.size() > 0) {
-            Item item = queue.remove();
-            ListNode node = new ListNode(item.val);
-            head.next = node;
-            head = head.next;
-            if (item.next != null) {
-                Item nextItem = new Item(item.next.val, item.next.next);
-                queue.add(nextItem);
-            }
+        int mid = start + (end - start) / 2;
 
+        ListNode L1 = partitionAndMerge(lists, start, mid);
+        ListNode L2 = partitionAndMerge(lists, mid + 1, end);
+
+        return merge(L1, L2);
+    }
+
+    private ListNode merge(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
         }
 
-        return res.next;
-
+        if (l1.val <= l2.val) {
+            l1.next = merge(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = merge(l1, l2.next);
+            return l2;
+        }
     }
 }
