@@ -43,23 +43,59 @@
  * There is at least one word in s.
  *
  *
- * Follow up: Could you solve it in-place with O(1) extra space?
+ * Follow-up: If the string data type is mutable in your language, can you solve it in-place with O(1) extra space?
  *
  **********************************************************************************/
 
 package com.leetcode.pankajmahato.algorithms.medium.twopointer;
 
 public class _151_Reverse_Words_in_a_String {
+
     public String reverseWords(String s) {
-        String[] input = s.trim().split(" ");
-        StringBuilder sb = new StringBuilder();
-        for (int i = input.length - 1; i >= 0; i--) {
-            if (!input[i].equals("")) {
-                sb.append(input[i]);
-                sb.append(" ");
+
+        // This is for in-place reversing
+        char[] arr = s.toCharArray();
+
+        int n = arr.length;
+
+        // Reverse the complete string
+        reverse(arr, 0, n - 1);
+
+        int i = 0;
+        int l = 0;
+        int r = 0;
+
+        while (i < n) {
+            while (i < n && arr[i] != ' ') {
+                arr[r] = arr[i];
+                i++;
+                r++;
             }
+
+            // Reverse the word
+            if (l < r) {
+                reverse(arr, l, r - 1);
+                // Add space only if it is inbounds
+                if (r < n) {
+                    arr[r] = ' ';
+                }
+                r++;
+                l = r;
+            }
+
+            i++;
         }
 
-        return sb.toString().trim();
+        return new String(arr, 0, r - 1);
+    }
+
+    private void reverse(char[] arr, int i, int j) {
+        while (i < j) {
+            char temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
     }
 }
