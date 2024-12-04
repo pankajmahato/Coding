@@ -36,6 +36,7 @@
 package com.leetcode.pankajmahato.algorithms.medium.dp;
 
 import java.util.Arrays;
+import java.util.TreeMap;
 
 public class _300_Longest_Increasing_Subsequence {
 
@@ -79,28 +80,47 @@ public class _300_Longest_Increasing_Subsequence {
 //        return result;
 //    }
 
+//    public int lengthOfLIS(int[] nums) {
+//
+//        // DP with bottom up
+//        int n = nums.length;
+//
+//        // dp[i] = longest increasing subsequence ending at i-th index
+//        int[] dp = new int[n];
+//        Arrays.fill(dp, 1);
+//
+//        int max = 1;
+//        for (int i = 0; i < n; i++) {
+//
+//            // check for every i-th element where it can be placed for j
+//            for (int j = 0; j < i; j++) {
+//
+//                if (nums[i] > nums[j]) {
+//                    dp[i] = Math.max(dp[i], dp[j] + 1);
+//                    max = Math.max(max, dp[i]);
+//                }
+//            }
+//        }
+//
+//        return max;
+//    }
+
     public int lengthOfLIS(int[] nums) {
 
-        // DP with bottom up
+        // DP with patience sorting ( store numbers in strictly increasing order)
         int n = nums.length;
 
-        // dp[i] = longest increasing subsequence ending at i-th index
-        int[] dp = new int[n];
-        Arrays.fill(dp, 1);
+        TreeMap<Integer, Integer> map = new TreeMap<>();
 
-        int max = 1;
         for (int i = 0; i < n; i++) {
 
-            // check for every i-th element where it can be placed for j
-            for (int j = 0; j < i; j++) {
-
-                if (nums[i] > nums[j]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
-                    max = Math.max(max, dp[i]);
-                }
+            // If there exists val >= nums[i] remove it
+            if (map.ceilingKey(nums[i]) != null) {
+                map.remove(map.ceilingKey(nums[i]));
             }
+            map.put(nums[i], 0);
         }
 
-        return max;
+        return map.size();
     }
 }
