@@ -34,36 +34,96 @@
  *
  **********************************************************************************/
 
-package com.leetcode.pankajmahato.algorithms.medium.hashmap;
+package com.leetcode.pankajmahato.algorithms.medium.trie;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class _648_Replace_Words {
 
+//    public String replaceWords(List<String> dictionary, String sentence) {
+//
+//        Set<String> set = new HashSet(dictionary);
+//
+//        StringBuilder sb = new StringBuilder();
+//        for (String word : sentence.split(" ")) {
+//            sb.append(findRoot(word, set)).append(" ");
+//        }
+//
+//        return sb.toString().trim();
+//    }
+//
+//    private String findRoot(String word, Set<String> set) {
+//
+//        for (int i = 0; i < word.length(); i++) {
+//
+//            String root = word.substring(0, i + 1);
+//            if (set.contains(root)) {
+//                return root;
+//            }
+//        }
+//
+//        return word;
+//    }
+
+    int N = 26;
+
+    class TrieNode {
+        boolean end;
+        String word = "";
+        TrieNode[] children = new TrieNode[N];
+    }
+
+    private void insertTrieNode(TrieNode root, String word) {
+
+        int n = word.length();
+        for (int i = 0; i < n; i++) {
+            int idx = word.charAt(i) - 'a';
+            if (root.children[idx] == null) {
+                root.children[idx] = new TrieNode();
+            }
+
+            root = root.children[idx];
+        }
+
+        root.end = true;
+        root.word = word;
+
+    }
+
     public String replaceWords(List<String> dictionary, String sentence) {
 
-        Set<String> set = new HashSet(dictionary);
+        TrieNode root = new TrieNode();
+
+        for (String dict : dictionary) {
+            insertTrieNode(root, dict);
+        }
 
         StringBuilder sb = new StringBuilder();
         for (String word : sentence.split(" ")) {
-            sb.append(findRoot(word, set)).append(" ");
+            sb.append(searchTrie(root, word)).append(" ");
         }
 
         return sb.toString().trim();
     }
 
-    private String findRoot(String word, Set<String> set) {
+    private String searchTrie(TrieNode root, String word) {
 
-        for (int i = 0; i < word.length(); i++) {
+        String result = word;
+        int n = word.length();
+        for (int i = 0; i < n; i++) {
+            int idx = word.charAt(i) - 'a';
+            if (root.children[idx] == null) {
+                break;
+            }
 
-            String root = word.substring(0, i + 1);
-            if (set.contains(root)) {
-                return root;
+            root = root.children[idx];
+            if (root.end == true) {
+                result = root.word;
+                break;
             }
         }
 
-        return word;
+        return result;
+
     }
 }
