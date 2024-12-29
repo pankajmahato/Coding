@@ -35,34 +35,96 @@
 package com.leetcode.pankajmahato.algorithms.medium.binarysearch;
 
 public class _81_Search_in_Rotated_Sorted_Array_II {
+//    public boolean search(int[] nums, int target) {
+//        int low = 0;
+//        int high = nums.length - 1;
+//        int mid = 0;
+//        while (low <= high) {
+//
+//            mid = low + (high - low) / 2;
+//
+//            if (nums[mid] == target || nums[high] == target) {
+//                return true;
+//            }
+//
+//            if (nums[low] < nums[mid]) {
+//                if (target <= nums[mid] && target >= nums[low]) {
+//                    high = mid - 1;
+//                } else {
+//                    low = mid + 1;
+//                }
+//            } else if (nums[low] > nums[mid]) {
+//                if (target >= nums[mid] && target <= nums[high]) {
+//                    low = mid + 1;
+//                } else {
+//                    high = mid - 1;
+//                }
+//            } else {
+//                high--;
+//            }
+//        }
+//        return false;
+//    }
+
     public boolean search(int[] nums, int target) {
-        int low = 0;
-        int high = nums.length - 1;
-        int mid = 0;
-        while (low <= high) {
 
-            mid = low + (high - low) / 2;
+        int n = nums.length;
 
-            if (nums[mid] == target || nums[high] == target) {
-                return true;
+        int pivot = findPivot(nums, 0, n - 1);
+
+        int idx = binarySearch(nums, 0, pivot - 1, target);
+
+        if (idx != -1) {
+            return true;
+        }
+
+        idx = binarySearch(nums, pivot, n - 1, target);
+
+        if (idx == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private int findPivot(int[] nums, int l, int r) {
+
+        while (l < r) {
+
+            while (l < r && nums[l] == nums[l + 1]) {
+                l++;
+            }
+            while (l < r && nums[r] == nums[r - 1]) {
+                r--;
             }
 
-            if (nums[low] < nums[mid]) {
-                if (target <= nums[mid] && target >= nums[low]) {
-                    high = mid - 1;
-                } else {
-                    low = mid + 1;
-                }
-            } else if (nums[low] > nums[mid]) {
-                if (target >= nums[mid] && target <= nums[high]) {
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
+            int mid = l + (r - l) / 2;
+
+            if (nums[mid] > nums[r]) {
+                l = mid + 1;
             } else {
-                high--;
+                r = mid;
             }
         }
-        return false;
+
+        return r;
+    }
+
+    private int binarySearch(int[] nums, int l, int r, int target) {
+
+        while (l <= r) {
+
+            int mid = l + (r - l) / 2;
+
+            if (nums[mid] < target) {
+                l = mid + 1;
+            } else if (nums[mid] > target) {
+                r = mid - 1;
+            } else {
+                return mid;
+            }
+        }
+
+        return -1;
     }
 }
