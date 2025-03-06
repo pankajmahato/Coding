@@ -53,42 +53,76 @@
 
 package com.leetcode.pankajmahato.algorithms.medium.array;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class _36_Valid_Sudoku {
+//    public boolean isValidSudoku(char[][] board) {
+//
+//        for (int i = 0; i < board.length; i++) {
+//            for (int j = 0; j < board[i].length; j++) {
+//                if (board[i][j] != '.' && !isValid(board, i, j)) {
+//                    return false;
+//                }
+//            }
+//        }
+//
+//        return true;
+//    }
+//
+//    public boolean isValid(char[][] board, int row, int col) {
+//
+//        for (int j = 0; j < board[row].length; j++) {
+//            if (j != col && board[row][j] == board[row][col]) {
+//                return false;
+//            }
+//        }
+//
+//        for (int i = 0; i < board.length; i++) {
+//            if (i != row && board[i][col] == board[row][col]) {
+//                return false;
+//            }
+//        }
+//
+//        int x = row / 3 * 3;
+//        int y = col / 3 * 3;
+//
+//        for (int i = 0; i < 3; i++) {
+//            for (int j = 0; j < 3; j++) {
+//                if ((x + i) != row && (y + j) != col && board[x + i][y + j] == board[row][col]) {
+//                    return false;
+//                }
+//            }
+//        }
+//
+//        return true;
+//    }
+
     public boolean isValidSudoku(char[][] board) {
 
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] != '.' && !isValid(board, i, j)) {
+        int m = board.length;
+        int n = board[0].length;
+
+        Set<String> set = new HashSet<>();
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+
+                if (board[i][j] == '.') {
+                    continue;
+                }
+
+                String row = board[i][j] + "_ROW_" + i;
+                String col = board[i][j] + "_COL_" + j;
+                String box = board[i][j] + "_box_" + i / 3 + "_" + j / 3;
+
+                if (set.contains(row) || set.contains(col) || set.contains(box)) {
                     return false;
                 }
-            }
-        }
 
-        return true;
-    }
-
-    public boolean isValid(char[][] board, int row, int col) {
-
-        for (int j = 0; j < board[row].length; j++) {
-            if (j != col && board[row][j] == board[row][col]) {
-                return false;
-            }
-        }
-
-        for (int i = 0; i < board.length; i++) {
-            if (i != row && board[i][col] == board[row][col]) {
-                return false;
-            }
-        }
-
-        int x = row / 3 * 3;
-        int y = col / 3 * 3;
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if ((x + i) != row && (y + j) != col && board[x + i][y + j] == board[row][col]) {
-                    return false;
-                }
+                set.add(row);
+                set.add(col);
+                set.add(box);
             }
         }
 
