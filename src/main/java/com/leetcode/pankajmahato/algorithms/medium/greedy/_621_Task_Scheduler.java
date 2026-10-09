@@ -48,10 +48,11 @@
  *
  **********************************************************************************/
 
-package com.leetcode.pankajmahato.algorithms.medium.heap;
+package com.leetcode.pankajmahato.algorithms.medium.greedy;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,59 +60,86 @@ import java.util.PriorityQueue;
 
 public class _621_Task_Scheduler {
 
-    class Pair {
-
-        char ch;
-        int freq;
-
-        Pair(char ch, int freq) {
-            this.ch = ch;
-            this.freq = freq;
-        }
-    }
+//    class Pair {
+//
+//        char ch;
+//        int freq;
+//
+//        Pair(char ch, int freq) {
+//            this.ch = ch;
+//            this.freq = freq;
+//        }
+//    }
+//
+//    public int leastInterval(char[] tasks, int n) {
+//
+//        Map<Character, Integer> map = new HashMap<>();
+//
+//        for (char ch : tasks) {
+//            map.put(ch, map.getOrDefault(ch, 0) + 1);
+//        }
+//
+//        PriorityQueue<Pair> queue = new PriorityQueue<>((a, b) -> Integer.compare(b.freq, a.freq));
+//
+//        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+//            queue.add(new Pair(entry.getKey(), entry.getValue()));
+//        }
+//
+//        int result = 0;
+//
+//        while (!queue.isEmpty()) {
+//
+//            List<Pair> temp = new ArrayList<>();
+//            for (int i = 1; i <= n + 1; i++) {
+//
+//                if (!queue.isEmpty()) {
+//
+//                    Pair p = queue.remove();
+//                    p.freq--;
+//                    temp.add(p);
+//                }
+//            }
+//
+//            for (Pair p : temp) {
+//                if (p.freq > 0) {
+//                    queue.add(p);
+//                }
+//            }
+//
+//            if (queue.isEmpty()) {
+//                result += temp.size();
+//            } else {
+//                result += n + 1;
+//            }
+//        }
+//
+//        return result;
+//    }
 
     public int leastInterval(char[] tasks, int n) {
 
-        Map<Character, Integer> map = new HashMap<>();
+        int N = 26;
+
+        int[] freq = new int[N];
 
         for (char ch : tasks) {
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
+            freq[ch - 'A']++;
         }
 
-        PriorityQueue<Pair> queue = new PriorityQueue<>((a, b) -> Integer.compare(b.freq, a.freq));
+        Arrays.sort(freq);
 
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            queue.add(new Pair(entry.getKey(), entry.getValue()));
+        int maxFreq = freq[N - 1];
+        int gaps = maxFreq - 1;
+        int idleSlots = gaps * n;
+
+        for (int i = N - 2; i >= 0; i--) {
+            idleSlots -= Math.min(gaps, freq[i]);
         }
 
-        int result = 0;
-
-        while (!queue.isEmpty()) {
-
-            List<Pair> temp = new ArrayList<>();
-            for (int i = 1; i <= n + 1; i++) {
-
-                if (!queue.isEmpty()) {
-
-                    Pair p = queue.remove();
-                    p.freq--;
-                    temp.add(p);
-                }
-            }
-
-            for (Pair p : temp) {
-                if (p.freq > 0) {
-                    queue.add(p);
-                }
-            }
-
-            if (queue.isEmpty()) {
-                result += temp.size();
-            } else {
-                result += n + 1;
-            }
+        if (idleSlots > 0) {
+            return tasks.length + idleSlots;
         }
 
-        return result;
+        return tasks.length;
     }
 }
