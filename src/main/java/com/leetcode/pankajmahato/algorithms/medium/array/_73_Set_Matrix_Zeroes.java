@@ -2,13 +2,10 @@
  *
  * https://leetcode.com/problems/set-matrix-zeroes/
  *
- * Given an m x n matrix. If an element is 0, set its entire row and column to 0. Do it in-place.
+ * Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
  *
- * Follow up:
+ * You must do it in place.
  *
- * A straight forward solution using O(mn) space is probably a bad idea.
- * A simple improvement uses O(m + n) space, but still not the best solution.
- * Could you devise a constant space solution?
  *
  *
  * Example 1:
@@ -30,6 +27,13 @@
  * 1 <= m, n <= 200
  * -231 <= matrix[i][j] <= 231 - 1
  *
+ *
+ * Follow up:
+ *
+ * A straightforward solution using O(mn) space is probably a bad idea.
+ * A simple improvement uses O(m + n) space, but still not the best solution.
+ * Could you devise a constant space solution?
+ *
  **********************************************************************************/
 
 package com.leetcode.pankajmahato.algorithms.medium.array;
@@ -37,40 +41,58 @@ package com.leetcode.pankajmahato.algorithms.medium.array;
 public class _73_Set_Matrix_Zeroes {
     public void setZeroes(int[][] matrix) {
 
-        int row = matrix.length;
-        int col = matrix[0].length;
-        boolean isCol = false;
-        for (int i = 0; i < row; i++) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
 
-            if (matrix[i][0] == 0) {
-                isCol = true;
+        boolean firstRowImpacted = false;
+        boolean firstColImpacted = false;
+
+        // Check for first Row
+        for (int col = 0; col < cols; col++) {
+            if (matrix[0][col] == 0) {
+                firstRowImpacted = true;
+                break;
             }
+        }
 
-            for (int j = 1; j < col; j++) {
-                if (matrix[i][j] == 0) {
-                    matrix[0][j] = 0;
-                    matrix[i][0] = 0;
+        // Check for first Col
+        for (int row = 0; row < rows; row++) {
+            if (matrix[row][0] == 0) {
+                firstColImpacted = true;
+                break;
+            }
+        }
+
+        // Set 1st cell of Row and Col to Zero to mark it
+        for (int row = 1; row < rows; row++) {
+            for (int col = 1; col < cols; col++) {
+                if (matrix[row][col] == 0) {
+                    matrix[row][0] = 0;
+                    matrix[0][col] = 0;
                 }
             }
         }
 
-        for (int i = 1; i < row; i++) {
-            for (int j = 1; j < col; j++) {
-                if (matrix[0][j] == 0 || matrix[i][0] == 0) {
-                    matrix[i][j] = 0;
+        for (int row = 1; row < rows; row++) {
+            for (int col = 1; col < cols; col++) {
+                if (matrix[row][0] == 0 || matrix[0][col] == 0) {
+                    matrix[row][col] = 0;
                 }
             }
         }
 
-        if (matrix[0][0] == 0) {
-            for (int j = 0; j < col; j++) {
-                matrix[0][j] = 0;
+        // Set first row
+        if (firstRowImpacted) {
+            for (int col = 0; col < cols; col++) {
+                matrix[0][col] = 0;
+
             }
         }
 
-        if (isCol) {
-            for (int i = 0; i < row; i++) {
-                matrix[i][0] = 0;
+        // Set first col
+        if (firstColImpacted) {
+            for (int row = 0; row < rows; row++) {
+                matrix[row][0] = 0;
             }
         }
     }
